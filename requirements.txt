@@ -16,7 +16,7 @@ beautifulsoup4==4.12.2
 
 # Advanced AI Models
 groq==0.4.1
-crewai==0.22.10
+crewai==0.95.0  # Updated to latest available version
 
 # Web Framework
 streamlit==1.29.0
@@ -59,4 +59,4 @@ gevent==23.9.1
 # 1. Pinned to specific versions for consistent builds
 # 2. Optimized for deployment and performance
 # 3. Ensure compatibility with Python 3.11
-# 4. Removed redundant logging package
+# 4. Updated crewai to latest available version
