@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basketball-ai-analyst"
+version = "0.1.0"
+description = "Advanced Basketball Performance Analysis AI"
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "streamlit",
+    "pandas",
+    "numpy",
+    "plotly",
+    "requests",
+    "python-dotenv",
+    "pillow",
+    "opencv-python-headless",
+    "pytesseract",
+    "groq",
+    "crewai",
+    "rapidapi-python",
+    "matplotlib",
+    "scikit-learn"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "flake8",
+    "coverage",
+    "black",
+    "mypy"
+]
+
+[project.scripts]
+basketball-ai = "app:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "test_basketball_analyst.py"
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["app.py", "utils"]
+omit = ["test_*", "setup.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "pass"
+]
